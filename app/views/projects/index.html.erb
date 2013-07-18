@@ -1,5 +1,5 @@
 <h1>Listing projects</h1>
-
+  <% provide(:li_class, 'active') %>
   <div class="container">
     <% @projects.each do |project| %>
     <div class="projectindex">
@@ -11,5 +11,3 @@
     </div>
       <% end %>
   </div>
-
-
