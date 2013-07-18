@@ -1,0 +1,15 @@
+<h1>Listing projects</h1>
+
+  <div class="container">
+    <% @projects.each do |project| %>
+    <div class="projectindex">
+      <p>
+        <strong> <%= project.title %></strong><br>
+        <em> Project by: <%= project.user_id %> </em><br>
+        <%= project.teaser %><br>
+      </p>
+    </div>
+      <% end %>
+  </div>
+
+
