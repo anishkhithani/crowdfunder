@@ -1,2 +1,11 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1>  <strong> <%= @project.title %></strong> </h1>
+<div class="container">
+  <div class="projectindex">
+    <p>
+      <em> Project by user: <%= @project.user_id %> </em><br>
+      <%= @project.description %><br>
+      Our goal! $<%= @project.goal %><br>
+      We've been funding since <%= @project.created_at %>
+    </p>
+  </div>
+</div>

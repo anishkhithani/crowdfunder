@@ -4,7 +4,7 @@
     <% @projects.each do |project| %>
     <div class="projectindex">
       <p>
-        <strong> <%= project.title %></strong><br>
+        <strong> <%= link_to project.title, project_path(project.id)%></strong><br>
         <em> Project by: <%= project.user_id %> </em><br>
         <%= project.teaser %><br>
       </p>
