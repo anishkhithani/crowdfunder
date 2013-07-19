@@ -1,4 +1,4 @@
-<% provide(:li_class, 'active') %>
+<% provide(:li_class_pj, "class=active") %>
 <h1>  <strong> <%= @project.title %></strong> </h1>
 <div class="container">
   <div class="projectindex">
@@ -8,5 +8,6 @@
       Our goal! $<%= @project.goal %><br>
       We've been funding since <%= @project.created_at %>
     </p>
+    <button> <%= link_to "Pledge", new_pledge_path %> </button>
   </div>
 </div>

@@ -13,18 +13,21 @@
         <a class="brand" href="/">CrowdFunder</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="<%= 'active' if current_page? root_path %>">
+            <li <%= yield(:li_class_hm)%>>
               <%= link_to "Home", :root %>
             </li>
-            <li class="<%= yield(:li_class)%>">
+            <li <%= yield(:li_class_pj)%>>
             <%= link_to 'Projects', :projects %>
             </li>
             <% if current_user %>
-              <li><%= link_to current_user.first_name, user_path(current_user.id)%></li>
+              <li <%= yield(:li_class_user)%>>
+              <%= link_to current_user.first_name, user_path(current_user.id)%></li>
               <li> <%= link_to "Logout", session_path("current"), :method => :delete  %></li>
             <% else %>
-                <li><%= link_to "Sign Up", new_user_path %></li>
-                <li><%= link_to "Login", new_session_path%></li>
+                <li <%= yield(:li_class_sign)%>>
+                  <%= link_to "Sign Up", new_user_path %></li>
+                <li <%= yield(:li_class_log)%>>
+                  <%= link_to "Login", new_session_path%></li>
             <% end %>
           </ul>
         </div>

@@ -7,7 +7,9 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  fixtures :all
+  teardown do
+    DatabaseCleaner.clean
+  end
 
   # Add more helper methods to be used by all tests here...
 end
@@ -40,21 +42,7 @@ class ActionDispatch::IntegrationTest
     fill_in "email", with: user.email
     fill_in "password", with: pass
     click_button "Login"
-
+    user
     # No asserts because testing is not done inside of a helper method
   end
-end
-
-class ActionDispatch::IntegrationTest
-  # Make the Capybara DSL available in all integration tests
-  include Capybara::DSL
-
-  # Crowdfunder is to be changed to the name of your app
-  Capybara.app = Crowdfunder::Application
-
-  teardown do
-      Capybara.reset_sessions!    # Forget the (simulated) browser state
-      Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
-    end
-
 end
