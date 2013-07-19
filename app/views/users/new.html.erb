@@ -5,9 +5,6 @@
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <ul>
-        <% if flash[:alert] %>
-          <p class="alert"><%=flash[:alert] %></p>
-        <% end %>
         <% @user.errors.full_messages.each do |msg| %>
         <li> <%= msg %> </li>
         <% end %>
