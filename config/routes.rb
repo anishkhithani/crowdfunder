@@ -1,6 +1,7 @@
 Crowdfunder::Application.routes.draw do
   resources :projects
   resources :users, except: :index
+  resources :pledges
 
   resource :session, :only => [:new, :create, :destroy]
   root to: "welcome#index"
