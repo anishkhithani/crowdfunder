@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       redirect_to root_path, :notice => "Account created"
 
     else
+      flash[:alert] = "Try again"
       render :new
     end
   end

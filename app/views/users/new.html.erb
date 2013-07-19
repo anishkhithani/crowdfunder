@@ -4,8 +4,10 @@
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2> Form is invalid </h2>
       <ul>
+        <% if flash[:alert] %>
+          <p class="alert"><%=flash[:alert] %></p>
+        <% end %>
         <% @user.errors.full_messages.each do |msg| %>
         <li> <%= msg %> </li>
         <% end %>
